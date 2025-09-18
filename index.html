@@ -6,7 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Lab2</title>
+
 <body>
-    lab2 code
+    <header>
+        <div class="header__main">
+            <h1>Bug Tracker</h1>
+            <p id="user-info">Адміністратор: <b>admin</b></p>
+        </div>
+
+        <div class="header__nav">
+            <div class="tabs">
+                <a class="tab-btn"
+                    href="https://docs.google.com/document/d/1YP3jccfexd2olQ1DL3LK8SKZBMAma6LnYK6_GHptHT0/edit?usp=sharing">
+                    Документ з правками User Story
+                </a>
+                <button class="tab-btn" data-tab="account">Адміністрування акаунтів</button>
+                <button class="tab-btn" data-tab="export">Експорт звітів</button>
+                <button class="tab-btn" data-tab="filter">Знайти звіт</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="account" class="tab-content">
+            <h2>Адміністрування акаунтів</h2>
+            <button id="open-signup">Зареєструватись</button>
+        </section>
+
+        <section id="export" class="tab-content hidden">
+            <h2>Експорт звітів</h2>
+            <button id="export-reports">Експорт звіту</button>
+            <div id="export-msg" class="message"></div>
+            <table id="reports-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                        <th>Reporter</th>
+                        <th>Assignee</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="filter" class="tab-content hidden">
+            <h2>Фільтрація звітів</h2>
+            <label><input type="radio" name="mode" value="simple" checked> Без фільтра</label>
+            <label><input type="radio" name="mode" value="filter"> З фільтром</label>
+
+            <div id="filter-options" class="disabled">
+                <label><input type="checkbox" id="chk-id" disabled> Ідентифікатор звіту
+                    <select id="filter-id" disabled></select>
+                </label>
+                <label><input type="checkbox" id="chk-severity" disabled> Строгість
+                    <select id="filter-severity" disabled></select>
+                </label>
+                <label><input type="checkbox" id="chk-status" disabled> Статус
+                    <select id="filter-status" disabled></select>
+                </label>
+                <label><input type="checkbox" id="chk-reporter" disabled> Репортер
+                    <select id="filter-reporter" disabled></select>
+                </label>
+                <label><input type="checkbox" id="chk-assignee" disabled> Уповноважений
+                    <select id="filter-assignee" disabled></select>
+                </label>
+                <label><input type="checkbox" id="chk-type" disabled> Тип звіту
+                    <select id="filter-type" disabled></select>
+                </label>
+            </div>
+
+            <button id="find-report">Знайти звіт</button>
+            <div id="filter-msg" class="message"></div>
+            <table id="filter-results">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                        <th>Reporter</th>
+                        <th>Assignee</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="signup-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Створити акаунт</h2>
+            <form id="signup-form">
+                <label>Ім’я користувача:
+                    <input type="text" id="username" placeholder="User Name">
+                    <span id="username-tooltip">
+                        User Name must be defined with the following rules:<br>
+                        - the first character must be a letter<br>
+                        - it can contain letters, numbers, underscore, hyphen<br>
+                        - the length is between 3 to 20 inclusively
+                    </span>
+                </label>
+                <label>Пароль:
+                    <input type="password" id="password" placeholder="Password">
+                    <span id="password-tooltip">
+                        Password must be defined with the following rules:<br>
+                        - password length must be between 8 to 20 inclusively characters<br>
+                        - password must contain number, at least one lower case letter, at least one upper case letter
+                        and at least one special character<br>
+                        - allowed special characters: !@#$%^&amp;+=
+                    </span>
+                </label>
+                <label>Підтвердити пароль:
+                    <input type="password" id="confirm-password" placeholder="Confirm Password">
+                </label>
+                <div id="error-block" class="error"></div>
+                <button type="submit">Зареєструватись</button>
+                <button type="button" id="cancel-signup">Відмінити</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

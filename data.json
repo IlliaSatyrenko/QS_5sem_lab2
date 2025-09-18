@@ -1,0 +1,26 @@
+[
+  {
+    "id": "Bug-101",
+    "severity": "High",
+    "status": "Open",
+    "reporter": "Alice",
+    "assignee": "Bob",
+    "type": "Bug"
+  },
+  {
+    "id": "Bug-102",
+    "severity": "Low",
+    "status": "Closed",
+    "reporter": "Charlie",
+    "assignee": "Dana",
+    "type": "Task"
+  },
+  {
+    "id": "Bug-105",
+    "severity": "Medium",
+    "status": "In Progress",
+    "reporter": "Eve",
+    "assignee": "Frank",
+    "type": "Bug"
+  }
+]
